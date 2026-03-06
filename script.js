@@ -1,10 +1,19 @@
-const squareLength = "50px";
+const squareLength = 50; //px
 
 const container = document.querySelector(".container");
+//16 x 16 container for box
+container.style.width = `${squareLength * 16}px`;
 
-const divBox = document.createElement("div");
-divBox.style.width = squareLength;
-divBox.style.height = squareLength;
-divBox.style.border = "2px solid black";
+function createBox() {
+  const divBox = document.createElement("div");
+  divBox.style.width = `${squareLength}px`;
+  divBox.style.height = `${squareLength}px`;
+  divBox.style.border = "2px solid black";
+  container.append(divBox);
+}
 
-container.append(divBox);
+for (let i = 0; i < 16 * 16; i++) {
+  createBox();
+}
+
+
