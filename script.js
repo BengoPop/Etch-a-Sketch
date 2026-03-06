@@ -1,4 +1,4 @@
-const squareLength = "50px"
+const squareLength = "50px";
 
 const container = document.querySelector(".container");
 
