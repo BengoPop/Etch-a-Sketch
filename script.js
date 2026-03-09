@@ -10,7 +10,7 @@ function createBox(numSquarePerLength) {
   divBox.style.width = `${squareLength}px`;
   divBox.style.height = `${squareLength}px`;
   divBox.style.border = "2px solid black";
-  divBox.addEventListener("mouseover", (e) => divBox.style.backgroundColor = "gray");
+  divBox.addEventListener("mouseover", (e) => divBox.style.backgroundColor = blockRandomColor());
   container.append(divBox);
 }
 
@@ -28,6 +28,15 @@ function getUserSquarePerSide() {
   }
   drawGrid(num);
 
+}
+
+function blockRandomColor() {
+  let randomRedValue, randomBlueValue, randomGreenValue;
+  randomRedValue = Math.floor(Math.random() * 255);
+  randomBlueValue = Math.floor(Math.random() * 255);
+  randomGreenValue = Math.floor(Math.random() * 255);
+
+  return `rgb(${randomRedValue},${randomBlueValue},${randomGreenValue})`;
 }
 getUserSquarePerSide();
 resetButton.addEventListener("click", (e) => getUserSquarePerSide());
