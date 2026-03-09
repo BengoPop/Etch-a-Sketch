@@ -9,23 +9,35 @@
 
  *
  */
-
-const squareLength = 40; //px
-
+const gridWidth = 960;
 const container = document.querySelector(".container");
-//16 x 16 container for box
-container.style.width = `${squareLength * 16}px`;
+container.style.width = `${gridWidth}px`;
 
-function createBox() {
+
+function createBox(numSquarePerLength) {
+  const squareLength = Math.floor(gridWidth / numSquarePerLength); //px
   const divBox = document.createElement("div");
   divBox.style.width = `${squareLength}px`;
   divBox.style.height = `${squareLength}px`;
   divBox.style.border = "2px solid black";
+  divBox.addEventListener("mouseover", (e) => divBox.style.backgroundColor = "gray");
   container.append(divBox);
 }
 
-for (let i = 0; i < 16 * 16; i++) {
-  createBox();
+
+function drawGrid(numSquarePerLength) {
+  for (let i = 0; i < numSquarePerLength * numSquarePerLength; i++) {
+    createBox(numSquarePerLength);
+  }
 }
+
+function getUserSquarePerSide() {
+  let num = prompt("Set number of squares per side of new grid.");
+  drawGrid(num);
+
+}
+
+getUserSquarePerSide()
+getUserSquarePerSide()
 
 
